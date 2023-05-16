@@ -17,16 +17,24 @@
   --fw-regular: 400;
   --fw-bold: 700;
   --fw-black: 800;
-  
-  --lh-400: 1.5px;
+
+  --lh-400: 4rem;
 
   --padding-y: 1rem;
   --padding-x: 5rem;
+  --padding-button: 1rem 3rem;
+  --margin-5: 5rem;
 }
 
 body {
   font-family: 'Ubuntu', 'Golos Text', sans-serif;
   background-color: var(--color-background);
+}
+
+h1 {
+  font-size: calc(var(--fs-800) * 1.5);
+  margin-bottom: calc(var(--margin-5) * 0.75);
+  line-height: var(--lh-400);
 }
 
 * {
@@ -40,7 +48,6 @@ button {
   outline: none;
   font: inherit;
   cursor: pointer;
-  background-color: var(--color-secondary);
 }
 
 /* Utility classes */
@@ -77,3 +84,50 @@ button {
   width: 5rem;
 }
 
+/* Hero section */
+
+
+
+#hero-section {
+  justify-content: center;
+}
+
+.hero-section-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-neutral);
+  gap: 10rem;
+  margin-top: calc(var(--margin-5) * 2);
+  padding-inline: calc(var(--padding-x) * 2);
+}
+
+.hero-left {
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-right: calc(var(--padding-x) * 5);
+}
+  .hero-left p {
+    font-size: var(--fs-700);
+    margin-bottom: calc(var(--margin-5) * 1.5);
+  }
+  .hero-left span {
+    color: var(--color-secondary);
+  }
+  .hero-left p span {
+    color: var(--color-secondary);
+  }
+  .hero-left div {
+    gap: var(--margin-5);
+  }
+  .hero-left .login-button {
+    font-size: var(--fs-700);
+    font-weight: var(--fw-bold);
+    padding: var(--padding-button);
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+  }
+  .hero-left .create-account-button {
+    background-color: transparent;
+    color: var(--color-neutral);
+  }
