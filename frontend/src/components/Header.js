@@ -21,7 +21,7 @@ function Header() {
           <a href='#'>Try It</a>
         </li>
         <li>
-          <a href='#'>Login</a>
+          <a href='#'>Log in</a>
         </li>
       </ul>
     </nav>
