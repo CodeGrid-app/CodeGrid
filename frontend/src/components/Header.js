@@ -1,12 +1,15 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <nav className='flex nav-flex'>
-      <div className='logo'>
-        <img src='logo.svg' alt='logo' />
-      </div>
-
+      
+        <div className='logo'>
+        <Link to='/'>
+          <img src='logo.svg' alt='logo' />
+      </Link>
+        </div>
       <ul className='flex nav-list'>
         <li>
           <a href='#'><span>Explore</span></a>
