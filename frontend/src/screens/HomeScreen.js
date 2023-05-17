@@ -7,8 +7,8 @@ function HomeScreen() {
         <h1>Learn <span>Data Structures</span> & <span>Algorithms</span> with ease</h1>
         <p>Solve coding problems and prepare for technical interviews with <span>CodeGrid</span>. Join now!</p>
         <div className="flex">
-          <button className="login-button">Log in</button>
           <button className="create-account-button">Create an account</button>
+          <button className="login-button">Log in</button>
         </div>
       </div>
 
