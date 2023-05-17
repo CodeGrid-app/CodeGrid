@@ -6,6 +6,7 @@
   --color-background: hsl(0, 4%, 9%);
   --color-neutral: hsl(0, 0%, 97%);
   --color-footer: hsl(0, 3%, 14%);
+  --color-login: hsl(216, 5%, 21% );
 
   --fs-400: 1.125rem;
   --fs-500: 1.25rem;
@@ -161,3 +162,58 @@ button {
 .hero-right img {
   width: 30rem;
 }
+
+
+/* Login Screen */
+.login-screen {
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+}
+
+@media (min-height: 800px) {
+  .login-screen {
+    min-height: 800px;
+  }
+}
+
+
+.login-container {
+  flex-direction: row;
+  background-color: var(--color-login);
+  padding: calc(var(--padding-y) * 2) calc(var(--padding-x) * .5);
+  border-radius: 3px;
+}
+
+.login-left {
+  flex-direction: column;
+  gap: 2rem;
+  color:var(--color-neutral);
+  font-size: .65rem;
+  font-family: 'Golos Text';
+  border-right: 1px solid hsl(0, 0%, 46%);
+  padding-right: calc(var(--padding-x)* .5);
+}
+
+.login-buttons {
+  flex-direction: column;
+  margin-left: 0;
+  gap: 1rem;
+}
+
+.login-left p {
+  align-self: flex-start;
+  padding-left: calc(var(--padding-x) * .05);
+  letter-spacing: .75px;
+}
+
+.login-left p span {
+  color: var(--color-secondary);
+}
+
+/* hr {
+  width: 1px;
+  height: 20rem;
+  margin: 0 30px;
+  fill: red;
+} */
