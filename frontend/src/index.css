@@ -63,21 +63,39 @@ button {
 .nav-flex {
   justify-content: flex-start;
   flex-grow: 1;
-  padding: var(--padding-y) var(--padding-x);
+  padding-block: var(--padding-y);
+  padding-inline: calc(var(--padding-x) * 2.5);
 }
 
 .nav-list {
   justify-content: space-between;
   flex-grow: 1;
   list-style: none;
-  font-size: calc(var(--fs-500) * 1.05);
+  font-size: calc(var(--fs-100));
   padding-left: calc(var(--padding-x) * 2);
 }
+  .nav-list a {
+    color: var(--color-neutral);
+    text-decoration: none;
+  }
+  .nav-list span {
+    padding: var(--padding-button);
+    position: relative;
+  }
+  .nav-list span::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-secondary);
+    transition: width 0.1s ease-in-out;
+  }
+  .nav-list span:hover::after {
+    width: 100%;
+  }
 
-.nav-list a {
-  color: var(--color-neutral);
-  text-decoration: none;
-}
 
 /* scale down the image logo */
 .logo img {
@@ -85,9 +103,6 @@ button {
 }
 
 /* Hero section */
-
-
-
 #hero-section {
   justify-content: center;
 }
@@ -97,15 +112,15 @@ button {
   justify-content: center;
   align-items: center;
   color: var(--color-neutral);
-  gap: 10rem;
-  margin-top: calc(var(--margin-5) * 2);
-  padding-inline: calc(var(--padding-x) * 2);
+  gap: 8rem;
+  margin-top: calc(var(--margin-5));
+  padding-inline: calc(var(--padding-x) * 2.5);
 }
 
 .hero-left {
   flex-direction: row;
   flex-wrap: wrap;
-  padding-right: calc(var(--padding-x) * 5);
+  flex: 1;
 }
   .hero-left p {
     font-size: var(--fs-700);
@@ -131,3 +146,11 @@ button {
     background-color: transparent;
     color: var(--color-neutral);
   }
+
+.hero-right {
+  flex: 1;
+  justify-content: center;
+}
+.hero-right img {
+  width: 30rem;
+}
