@@ -31,6 +31,10 @@ body {
   background-color: var(--color-background);
 }
 
+main {
+  padding-inline: calc(var(--padding-x) * 2.5);
+}
+
 h1 {
   font-size: calc(var(--fs-800) * 1.5);
   margin-bottom: calc(var(--margin-5) * 0.75);
@@ -114,7 +118,6 @@ button {
   color: var(--color-neutral);
   gap: 8rem;
   margin-top: calc(var(--margin-5));
-  padding-inline: calc(var(--padding-x) * 2.5);
 }
 
 .hero-left {
@@ -125,6 +128,10 @@ button {
   .hero-left p {
     font-size: var(--fs-700);
     margin-bottom: calc(var(--margin-5) * 1.5);
+    letter-spacing: .05rem;
+  }
+  .hero-left h1 {
+    letter-spacing: .05rem;
   }
   .hero-left span {
     color: var(--color-secondary);
