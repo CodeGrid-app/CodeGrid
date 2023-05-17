@@ -22,7 +22,8 @@
 
   --padding-y: 1rem;
   --padding-x: 5rem;
-  --padding-button: 1rem 3rem;
+  --padding-button: 0.8em 2em;
+  --border-radius-button: 2px;
   --margin-5: 5rem;
 }
 
@@ -37,7 +38,6 @@ main {
 
 h1 {
   font-size: calc(var(--fs-800) * 1.5);
-  margin-bottom: calc(var(--margin-5) * 0.75);
   line-height: var(--lh-400);
 }
 
@@ -124,14 +124,10 @@ button {
   flex-direction: row;
   flex-wrap: wrap;
   flex: 1;
+  gap: calc(var(--margin-5) * 0.6);
 }
   .hero-left p {
     font-size: var(--fs-700);
-    margin-bottom: calc(var(--margin-5) * 1.5);
-    letter-spacing: .05rem;
-  }
-  .hero-left h1 {
-    letter-spacing: .05rem;
   }
   .hero-left span {
     color: var(--color-secondary);
@@ -140,18 +136,30 @@ button {
     color: var(--color-secondary);
   }
   .hero-left div {
-    gap: var(--margin-5);
+    gap: calc(var(--margin-5) * 0.6);
   }
-  .hero-left .login-button {
-    font-size: var(--fs-700);
-    font-weight: var(--fw-bold);
+  .hero-left button {
     padding: var(--padding-button);
-    background-color: var(--color-secondary);
-    color: var(--color-background);
+    border-radius: var(--border-radius-button)
   }
   .hero-left .create-account-button {
+    font-weight: var(--fw-bold);
+    background-color: var(--color-secondary);
+    color: var(--color-background);
+    transition: background-color 0.1s ease, color 0.1s ease;
+  }
+  .hero-left .create-account-button:hover {
+    background-color: hsl(164, 93%, 39%)
+  }
+  .hero-left .login-button {
     background-color: transparent;
     color: var(--color-neutral);
+    border: 1px solid var(--color-neutral);
+    transition: background-color 0.1s ease, color 0.1s ease;
+  }
+  .hero-left .login-button:hover {
+    background-color: var(--color-neutral);
+    color: var(--color-background);
   }
 
 .hero-right {
