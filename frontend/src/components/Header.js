@@ -9,19 +9,19 @@ function Header() {
 
       <ul className='flex nav-list'>
         <li>
-          <a href='#'>Explore</a>
+          <a href='#'><span>Explore</span></a>
         </li>
         <li>
-          <a href='#'>Testimonials</a>
+          <a href='#'><span>Testimonials</span></a>
         </li>
         <li>
-          <a href='#'>Premium</a>
+          <a href='#'><span>Premium</span></a>
         </li>
         <li>
-          <a href='#'>Try It</a>
+          <a href='#'><span>Try it</span></a>
         </li>
         <li>
-          <a href='#'>Log in</a>
+          <a href='#'><span>Log in</span></a>
         </li>
       </ul>
     </nav>
