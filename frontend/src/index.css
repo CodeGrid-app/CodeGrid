@@ -38,7 +38,7 @@ main {
 }
 
 h1 {
-  font-size: calc(var(--fs-800) * 1.5);
+  font-size: calc(var(--fs-800) * 1.7);
   line-height: var(--lh-400);
 }
 
@@ -62,7 +62,6 @@ button {
   justify-content: space-between;
   align-items: center;
 }
-
 
 /* Navbar */
 .nav-flex {
@@ -101,7 +100,6 @@ button {
     width: 100%;
   }
 
-
 /* scale down the image logo */
 .logo img {
   width: 5rem;
@@ -128,7 +126,8 @@ button {
   gap: calc(var(--margin-5) * 0.6);
 }
   .hero-left p {
-    font-size: var(--fs-700);
+    font-size: var(--fs-600);
+    line-height: calc(var(--lh-400) * 0.5);
   }
   .hero-left span {
     color: var(--color-secondary);
@@ -141,7 +140,7 @@ button {
   }
   .hero-left button {
     padding: var(--padding-button);
-    border-radius: var(--border-radius-button)
+    border-radius: var(--border-radius-button);
   }
   .hero-left .create-account-button {
     font-weight: var(--fw-bold);
@@ -150,7 +149,7 @@ button {
     transition: background-color 0.1s ease, color 0.1s ease;
   }
   .hero-left .create-account-button:hover {
-    background-color: hsl(164, 93%, 39%)
+    background-color: hsl(164, 93%, 37%)
   }
   .hero-left .login-button {
     background-color: transparent;
@@ -167,10 +166,16 @@ button {
   flex: 1;
   justify-content: center;
 }
-.hero-right img {
-  width: 30rem;
-}
+  .hero-right img {
+    width: 30rem;
+  }
 
+.waves {
+  width: 100%;
+  top: 18rem;
+  position: absolute;
+  z-index: -1;
+}
 
 /* Login Screen */
 .login-screen {
@@ -184,7 +189,6 @@ button {
     min-height: 800px;
   }
 }
-
 
 .login-container {
   flex-direction: row;
