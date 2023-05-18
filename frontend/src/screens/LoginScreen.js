@@ -35,7 +35,6 @@ function LoginScreen() {
           </p>
         </div>
 
-        {/* <hr /> */}
         <div className='login-right flex'></div>
       </div>
     </div>
