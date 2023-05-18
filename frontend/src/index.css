@@ -7,6 +7,7 @@
   --color-neutral: hsl(0, 0%, 97%);
   --color-footer: hsl(0, 3%, 14%);
   --color-login: hsl(216, 5%, 21% );
+  --color-input-dark: hsla(0, 9%, 76%, 33%);
 
   --fs-400: 1.125rem;
   --fs-500: 1.25rem;
@@ -26,6 +27,8 @@
   --padding-button: 0.8em 2em;
   --border-radius-button: 2px;
   --margin-5: 5rem;
+
+  --flex-gap: 2rem;
 }
 
 body {
@@ -66,6 +69,7 @@ button {
 /* Navbar */
 .nav-flex {
   justify-content: flex-start;
+  align-items: flex-end;
   flex-grow: 1;
   padding-block: var(--padding-y);
   padding-inline: calc(var(--padding-x) * 2.5);
@@ -136,7 +140,7 @@ button {
     color: var(--color-secondary);
   }
   .hero-left div {
-    gap: calc(var(--margin-5) * 0.6);
+    gap: calc(var(--margin-5) * 0.4);
   }
   .hero-left button {
     padding: var(--padding-button);
@@ -223,9 +227,55 @@ button {
   color: var(--color-secondary);
 }
 
-/* hr {
-  width: 1px;
-  height: 20rem;
-  margin: 0 30px;
-  fill: red;
-} */
+.login-right {
+  padding-inline: calc(var(--padding-x) * .7);
+  justify-content: center;
+  padding-top: calc(var(--padding-y) * 4);
+}
+
+.login-right form {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: calc(var(--flex-gap) * 0.4);
+}
+
+.login-right form div{
+  font-size: calc(var(--fs-400) * .7);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(var(--flex-gap) * 0.1);
+}
+
+
+.login-right input {
+  background-color: var(--color-input-dark);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.37);
+  border: none;
+  border-radius: var(--border-radius-button);
+  font-size: calc(var(--fs-400) * .7);
+
+}
+
+.login-right input:focus {
+  background-color: var(--color-input-dark);
+  box-shadow: inset 0 0 0 1px var(--color-neutral);
+  border-radius: var(--border-radius-button);
+  font-size: calc(var(--fs-400) * .7);
+}
+
+.login-right input::placeholder {
+  color: var(--color-neutral);
+}
+
+.login-div {
+  color: white;
+  width: 100%;
+}
+
+.login-right button {
+  background-color: var(--color-secondary);
+  border-radius: var(--border-radius-button);
+  border:none;
+  padding-inline: calc(var(--padding-x) * .15);
+  width: 100%;
+}
