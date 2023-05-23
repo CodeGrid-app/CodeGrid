@@ -4,6 +4,6 @@ async function connectDB() {
   try {
     const conn = await mongoose.connect(`ADD URI HERE`);
   } catch (error) {
-    console.error(error);
+    console.error(`${error.message}`);
   }
 }
