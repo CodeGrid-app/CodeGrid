@@ -2,13 +2,15 @@
 
 :root {
   --color-primary: hsl(269, 64%, 46%);
-  --color-secondary: hsl(164, 95%, 43%);
+  --color-secondary: hsl(164, 94%, 41%);
   --color-background: hsl(0, 4%, 9%);
   --color-neutral: hsl(0, 0%, 97%);
   --color-footer: hsl(0, 3%, 14%);
   --color-login: hsl(216, 5%, 21% );
-  --color-input-dark: hsla(0, 9%, 76%, 33%);
+  --color-input-dark: hsla(0, 6%, 65%, 0.33);
 
+  --fs-200: 0.875rem;
+  --fs-300: 1rem;
   --fs-400: 1.125rem;
   --fs-500: 1.25rem;
   --fs-600: 1.5rem;
@@ -31,6 +33,12 @@
   --flex-gap: 2rem;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Ubuntu', 'Golos Text', sans-serif;
   background-color: var(--color-background);
@@ -42,14 +50,42 @@ main {
 
 h1 {
   font-size: calc(var(--fs-800) * 1.7);
-  line-height: var(--lh-400);
 }
 
-* {
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  display: grid;
+  place-content: center;
 }
+  input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--color-secondary);
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  }
+  input[type="checkbox"]:checked::before {
+    transform: scale(1);
+  }
+  input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    outline-offset: max(2px, 0.15em);
+  }
 
 button {
   border: none;
@@ -62,8 +98,18 @@ button {
 /* Flexbox */
 .flex {
   display: flex;
-  justify-content: space-between;
+}
+.items-center {
   align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.direction-column {
+  flex-direction: column;
 }
 
 /* Navbar */
@@ -195,87 +241,103 @@ button {
 }
 
 .login-container {
-  flex-direction: row;
   background-color: var(--color-login);
-  padding: calc(var(--padding-y) * 2) calc(var(--padding-x) * .5);
+  color: var(--color-neutral);
+  padding: calc(var(--padding-y) * 2.4);
   border-radius: 3px;
+  width: 25rem;
 }
+  .login-container .login-utilities {
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+    .login-container .login-utilities > div {
+      gap: calc(var(--flex-gap) * 0.2);
+    }
 
-.login-left {
-  flex-direction: column;
-  gap: 2rem;
-  color:var(--color-neutral);
-  font-size: .65rem;
-  font-family: 'Golos Text';
-  border-right: 1px solid hsl(0, 0%, 46%);
-  padding-right: calc(var(--padding-x)* .5);
+.line-break {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border: none;
+  margin-block: calc(var(--flex-gap) * 0.4);
 }
+  .line-break span {
+    text-align: center;
+      flex: 0.2 0 auto;
+      margin: 0;
+  }
+  .line-break::after, .line-break::before {
+    content: "";
+    border-bottom: 1px solid var(--color-input-dark);
+    flex: 1 0 auto;
+    height: 0.8rem;
+  }
+
+.login-top {
+  display: flex;
+  flex-direction: column;
+}
+  .login-top form {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--flex-gap) * 0.7);
+  }
+    .login-top form > div {
+      font-size: calc(var(--fs-400) * .7);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: calc(var(--flex-gap) * 0.1);
+    }
+
+  .login-top p {
+    margin: 0;
+    color: var(--color-neutral);
+  }
+  .login-top h1 {
+    font-size: var(--fs-800);
+    margin: 0;
+  }
+  .login-top a {
+    color: var(--color-secondary);
+    text-decoration: none;
+  }
+  .login-top a,
+  .login-top p,
+  .login-top label {
+    font-size: var(--fs-200);
+  }
+  .login-top input {
+    background-color: var(--color-input-dark);
+    border: none;
+    border-radius: var(--border-radius-button);
+    font-size: var(--fs-300);
+  }
+  .login-top input:focus {
+    background-color: var(--color-input-dark);
+    border-radius: var(--border-radius-button);
+    font-size: var(--fs-300);
+  }
+  .login-top button {
+    background-color: var(--color-secondary);
+    border-radius: var(--border-radius-button);
+    border:none;
+    padding-inline: calc(var(--padding-x) * .15);
+    width: 100%;
+  }
 
 .login-buttons {
+  display: flex;
   flex-direction: column;
-  margin-left: 0;
-  gap: 1rem;
+  gap: calc(var(--flex-gap) * 0.5);
+  color:var(--color-neutral);
+  font-family: 'Golos Text';
 }
-
-.login-left p {
-  align-self: flex-start;
-  padding-left: calc(var(--padding-x) * .05);
-  letter-spacing: .75px;
-}
-
-.login-left p span {
-  color: var(--color-secondary);
-}
-
-.login-right {
-  padding-inline: calc(var(--padding-x) * .7);
-  justify-content: center;
-  padding-top: calc(var(--padding-y) * 4);
-}
-
-.login-right form {
-  flex-direction: column;
-  align-items: flex-end;
-  gap: calc(var(--flex-gap) * 0.4);
-}
-
-.login-right form div{
-  font-size: calc(var(--fs-400) * .7);
-  flex-direction: column;
-  align-items: flex-start;
-  gap: calc(var(--flex-gap) * 0.1);
-}
-
-
-.login-right input {
-  background-color: var(--color-input-dark);
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.37);
-  border: none;
-  border-radius: var(--border-radius-button);
-  font-size: calc(var(--fs-400) * .7);
-
-}
-
-.login-right input:focus {
-  background-color: var(--color-input-dark);
-  box-shadow: inset 0 0 0 1px var(--color-neutral);
-  border-radius: var(--border-radius-button);
-  font-size: calc(var(--fs-400) * .7);
-}
-
-.login-right input::placeholder {
-  color: var(--color-neutral);
-}
-
-.login-div {
-  color: white;
-  width: 100%;
-}
-
-.login-right button {
-  background-color: var(--color-secondary);
-  border-radius: var(--border-radius-button);
-  border:none;
-  padding-inline: calc(var(--padding-x) * .15);
-  width: 100%;
-}
+  .login-buttons button {
+    margin: 0 !important;
+    width: 100% !important;
+    font-size: var(--fs-300) !important;
+    border-radius: var(--border-radius-button) !important;
+  }
