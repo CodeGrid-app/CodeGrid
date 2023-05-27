@@ -3,11 +3,12 @@
 :root {
   --color-primary: hsl(269, 64%, 46%);
   --color-secondary: hsl(164, 94%, 41%);
+  --color-secondary-hover: hsl(164, 93%, 37%);
   --color-background: hsl(0, 4%, 9%);
   --color-neutral: hsl(0, 0%, 97%);
   --color-footer: hsl(0, 3%, 14%);
   --color-login: hsl(216, 5%, 21% );
-  --color-input-dark: hsla(0, 6%, 65%, 0.33);
+  --color-input-dark: hsla(0, 5%, 82%, 0.33);
 
   --fs-200: 0.875rem;
   --fs-300: 1rem;
@@ -199,7 +200,7 @@ button {
     transition: background-color 0.1s ease, color 0.1s ease;
   }
   .hero-left .create-account-button:hover {
-    background-color: hsl(164, 93%, 37%)
+    background-color: var(--color-secondary-hover);
   }
   .hero-left .login-button {
     background-color: transparent;
@@ -262,12 +263,12 @@ button {
   display: flex;
   flex-direction: row;
   border: none;
-  margin-block: calc(var(--flex-gap) * 0.4);
+  margin-block: calc(var(--flex-gap) * 0.7);
 }
   .line-break span {
     text-align: center;
-      flex: 0.2 0 auto;
-      margin: 0;
+    flex: 0.2 0 auto;
+    margin: 0;
   }
   .line-break::after, .line-break::before {
     content: "";
@@ -291,11 +292,22 @@ button {
       /* align-items: flex-start; */
       /* gap: calc(var(--flex-gap) * 0.1); */
     }
+    .login-top form .password-input {
+      border-radius: var(--border-radius-button) 0 0 var(--border-radius-button);
+    }
 
   .login-top .password-button {
-    width: auto;
-    border-radius: 0 var(--border-radius-button) var(--border-radius-button) 0 ; 
-  }  
+    width: 3rem;
+    border-radius: 0 var(--border-radius-button) var(--border-radius-button) 0;
+  }
+    .login-top .password-button:hover,
+    .login-top .password-button:focus {
+      background-color: var(--color-secondary-hover);
+    }
+
+  .login-top .login-button:hover {
+    background-color: var(--color-secondary-hover);
+  }
 
   .login-top p {
     margin: 0;
@@ -315,14 +327,13 @@ button {
     font-size: var(--fs-200);
   }
   .login-top input {
-    background-color: var(--color-input-dark);
     border: none;
-    border-radius: var(--border-radius-button);
-    font-size: var(--fs-300);
   }
+  .login-top input,
   .login-top input:focus {
-    background-color: var(--color-input-dark);
+    color: var(--color-neutral);
     border-radius: var(--border-radius-button);
+    background-color: var(--color-input-dark);
     font-size: var(--fs-300);
   }
   .login-top button {
@@ -335,14 +346,17 @@ button {
 
 .login-buttons {
   display: flex;
-  flex-direction: column;
   gap: calc(var(--flex-gap) * 0.5);
   color:var(--color-neutral);
-  font-family: 'Golos Text';
 }
   .login-buttons button {
-    margin: 0 !important;
-    width: 100% !important;
-    font-size: var(--fs-300) !important;
-    border-radius: var(--border-radius-button) !important;
+    width: 100%;
+    background-color: var(--color-login);
+    color: var(--color-neutral);
+    border: 1px solid var(--color-input-dark);
+    border-radius: var(--border-radius-button);
+    padding: var(--padding-button);
+  }
+  .login-buttons button:hover {
+    background-color: var(--color-input-dark);
   }
