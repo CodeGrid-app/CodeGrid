@@ -15,7 +15,9 @@ function HomeScreen() {
             <span>CodeGrid</span>. Join now!
           </p>
           <div className='flex'>
-            <button className='create-account-button'>Create an account</button>
+            <Link to='/signup'>
+              <button className='create-account-button'>Create an account</button>
+            </Link>
             <Link to='/login'>
               <button className='login-button'>Log in</button>
             </Link>
