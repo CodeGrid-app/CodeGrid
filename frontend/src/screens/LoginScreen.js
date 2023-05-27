@@ -7,13 +7,14 @@ import {
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import { FormCheck } from 'react-bootstrap';
+import { FormCheck, InputGroup } from 'react-bootstrap';
 
 function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
-  console.log(password, email);
+  console.log(showPassword);
   return (
     <div className='login-screen flex'>
       <div className='login-container flex direction-column'>
@@ -29,18 +30,36 @@ function LoginScreen() {
                 onChange={e => setEmail(e.target.value)}
               />
             </Form.Group>
-            <Form.Group controlId='password'>
+            <InputGroup controlId='password'>
               <Form.Control
-                type='password'
+                type={showPassword === true ? 'text' : 'password'}
                 placeholder='Password'
                 value={password}
                 size='lg'
                 onChange={e => setPassword(e.target.value)}
               />
-            </Form.Group>
+
+              <Button
+                className='password-button'
+                variant='secondary'
+                onClick={() =>
+                  setShowPassword(showPassword === true ? false : true)
+                }
+              >
+                {showPassword === true ? (
+                  <i class='fa-regular fa-eye-slash fa-sm'></i>
+                ) : (
+                  <i class='fa-regular fa-eye fa-md'></i>
+                )}
+              </Button>
+            </InputGroup>
             <div className='login-utilities flex'>
               <div className='flex items-center'>
-                <input type='checkbox' id='remember me' name='remember me'></input>
+                <input
+                  type='checkbox'
+                  id='remember me'
+                  name='remember me'
+                ></input>
                 <label for='remember me'>Remember me</label>
               </div>
               <Link>Forgot password?</Link>
@@ -48,10 +67,14 @@ function LoginScreen() {
             <Button variant='primary' type='submit'>
               Log In
             </Button>{' '}
-            <p>Don't have an account? <Link>Sign up</Link></p>
+            <p>
+              Don't have an account? <Link>Sign up</Link>
+            </p>
           </Form>
         </div>
-        <div className='line-break'><span>OR</span></div>
+        <div className='line-break'>
+          <span>OR</span>
+        </div>
         <div className='login-buttons'>
           <GoogleLoginButton className='social-button'>
             Google

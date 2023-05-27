@@ -287,10 +287,15 @@ button {
   }
     .login-top form > div {
       font-size: calc(var(--fs-400) * .7);
-      flex-direction: column;
-      align-items: flex-start;
-      gap: calc(var(--flex-gap) * 0.1);
+      flex-direction: row;
+      /* align-items: flex-start; */
+      /* gap: calc(var(--flex-gap) * 0.1); */
     }
+
+  .login-top .password-button {
+    width: auto;
+    border-radius: 0 var(--border-radius-button) var(--border-radius-button) 0 ; 
+  }  
 
   .login-top p {
     margin: 0;
