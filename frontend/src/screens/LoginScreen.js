@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import {
-  GoogleLoginButton,
-  GithubLoginButton,
-  FacebookLoginButton,
-} from 'react-social-login-buttons';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import { FormCheck, InputGroup } from 'react-bootstrap';
+import GoogleButton from '../components/GoogleButton';
+import GithubButton from '../components/GithubButton';
+import FacebookButton from '../components/FacebookButton';
 
 function LoginScreen() {
   const [email, setEmail] = useState('');
@@ -37,6 +35,7 @@ function LoginScreen() {
                 value={password}
                 size='lg'
                 onChange={e => setPassword(e.target.value)}
+                className='password-input'
               />
 
               <Button
@@ -64,7 +63,7 @@ function LoginScreen() {
               </div>
               <Link>Forgot password?</Link>
             </div>
-            <Button variant='primary' type='submit'>
+            <Button variant='primary' type='submit' className='login-button'>
               Log In
             </Button>{' '}
             <p>
@@ -73,18 +72,12 @@ function LoginScreen() {
           </Form>
         </div>
         <div className='line-break'>
-          <span>OR</span>
+          <span>Or continue with</span>
         </div>
         <div className='login-buttons'>
-          <GoogleLoginButton className='social-button'>
-            Google
-          </GoogleLoginButton>
-          <GithubLoginButton className='social-button'>
-            GitHub
-          </GithubLoginButton>
-          <FacebookLoginButton className='social-button'>
-            Facebook
-          </FacebookLoginButton>
+          <GoogleButton></GoogleButton>
+          <GithubButton></GithubButton>
+          <FacebookButton></FacebookButton>
         </div>
       </div>
     </div>
