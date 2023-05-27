@@ -12,7 +12,6 @@ function LoginScreen() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  console.log(showPassword);
   return (
     <div className='login-screen flex'>
       <div className='login-container flex direction-column'>
@@ -67,7 +66,7 @@ function LoginScreen() {
               Log In
             </Button>{' '}
             <p>
-              Don't have an account? <Link>Sign up</Link>
+              Don't have an account? <Link to='/signup'>Sign up</Link>
             </p>
           </Form>
         </div>
