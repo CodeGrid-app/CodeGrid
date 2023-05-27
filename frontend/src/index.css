@@ -329,6 +329,10 @@ button {
   .login-top input {
     border: none;
   }
+  .login-top input::placeholder {
+    color: var(--color-neutral);
+    opacity: 0.8;
+  }
   .login-top input,
   .login-top input:focus {
     color: var(--color-neutral);
