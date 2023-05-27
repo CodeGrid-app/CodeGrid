@@ -6,8 +6,8 @@
   --color-secondary-hover: hsl(164, 93%, 37%);
   --color-background: hsl(0, 4%, 9%);
   --color-neutral: hsl(0, 0%, 97%);
-  --color-footer: hsl(0, 3%, 14%);
-  --color-login: hsl(216, 5%, 21% );
+  --color-footer: hsl(0, 0%, 15%);
+  --color-login: hsl(216, 5%, 21%);
   --color-input-dark: hsla(0, 5%, 82%, 0.33);
 
   --fs-200: 0.875rem;
@@ -118,6 +118,8 @@ button {
   justify-content: flex-start;
   align-items: flex-end;
   flex-grow: 1;
+}
+.nav-flex, footer {
   padding-block: var(--padding-y);
   padding-inline: calc(var(--padding-x) * 2.5);
 }
@@ -155,6 +157,24 @@ button {
 .logo img {
   width: 5rem;
 }
+
+/* Footer */
+footer {
+  justify-content: space-between;
+  color: var(--color-neutral);
+  background-color: var(--color-footer);
+  opacity: 0.8;
+}
+  footer ul {
+    list-style: none;
+    gap: var(--flex-gap);
+  }
+  footer a, footer a:hover {
+    color: var(--color-neutral);
+  }
+    footer p, footer ul {
+      margin: 0;
+    }
 
 /* Hero section */
 #hero-section {
