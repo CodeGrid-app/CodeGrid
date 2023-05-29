@@ -15,6 +15,7 @@
   "author": "Dennis Bitoiu & Eduard Ciociu",
   "license": "ISC",
   "dependencies": {
+    "@headlessui/react": "^1.7.14",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "dotenv": "^16.0.3",
