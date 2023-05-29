@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
-import userLoginSlice from './slices/userSlice';
+import userLoginReducer from './slices/userSlice';
 
 const cookieValue = Cookies.get('userInfo')
   ? JSON.parse(Cookies.get('userInfo'))
@@ -14,7 +14,7 @@ const initialState = {
 
 const store = configureStore({
   reducer: {
-    userLogin: userLoginSlice,
+    userLogin: userLoginReducer,
   },
 
   preloadedState: initialState,
