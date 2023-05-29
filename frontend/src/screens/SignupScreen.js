@@ -3,9 +3,9 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import { FormCheck, InputGroup } from 'react-bootstrap';
-import GoogleButton from '../components/GoogleButton';
-import GithubButton from '../components/GithubButton';
-import FacebookButton from '../components/FacebookButton';
+import GoogleButton from '../components/login_buttons/GoogleButton';
+import GithubButton from '../components/login_buttons/GithubButton';
+import FacebookButton from '../components/login_buttons/FacebookButton';
 
 function SignupScreen() {
   const [username, setUsername] = useState('');
