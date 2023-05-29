@@ -20,4 +20,4 @@ const userLoginSlice = createSlice({
 
 export const { userLoginRequest, userLoginSuccess, userLoginFail } =
   userLoginSlice.actions;
-export default userLoginSlice;
+export default userLoginSlice.reducer;
