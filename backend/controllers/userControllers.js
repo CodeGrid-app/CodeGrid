@@ -11,4 +11,4 @@ const authUser = AsyncHandler(async (req, res) => {
 //   res.json(req.isAuthenticated());
 // });
 
-export { authUser, getUserName };
+export { authUser };
