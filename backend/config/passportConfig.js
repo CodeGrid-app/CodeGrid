@@ -33,17 +33,18 @@ AsyncHandler(
 // Serialize the user object and store it in the session
 passport.serializeUser((user, done) => {
   // Call the `done` callback with the serialized user data
+  console.log('serializeUser');
   done(null, user.id);
 });
 
 // Deserialize the user object from the session
-passport.deserializeUser((id, done) => {
+passport.deserializeUser(async (id, done) => {
   // Retrieve the user object based on the serialized data (user id)
 
-  // TODO: Remove the callback as the findById method does not accept a callback anymore
-  User.findById(id, (err, user) => {
-    done(err, user);
-  });
+  const user = await User.findById(id);
+  console.log('deserializeUser');
+
+  user ? done(null, user) : done({ message: 'User not found' }, null);
 });
 
 export default passport;
