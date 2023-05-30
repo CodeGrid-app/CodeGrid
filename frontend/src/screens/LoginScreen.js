@@ -1,22 +1,45 @@
-import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { InputGroup } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
-import { FormCheck, InputGroup } from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
 import GoogleButton from '../components/login_buttons/GoogleButton';
 import GithubButton from '../components/login_buttons/GithubButton';
 import FacebookButton from '../components/login_buttons/FacebookButton';
+
+import { login } from '../actions/userActions';
 
 function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo, error, loading } = userLogin;
+
+  useEffect(() => {
+    // If user is logged in, redirect to /problems
+    if (userInfo) {
+      navigate('/problems');
+    }
+  }, [userInfo, navigate]);
+
+  function submitHandler(event) {
+    event.preventDefault();
+
+    // Dispatch login action which posts to /api/users/login the email and password
+    dispatch(login(email, password));
+  }
+
   return (
     <div className='login-screen flex'>
       <div className='login-container flex direction-column'>
         <div className='login-top'>
-          <Form>
+          <Form onSubmit={submitHandler}>
             <h1>Log in</h1>
             <Form.Group controlId='email'>
               <Form.Control
@@ -27,7 +50,7 @@ function LoginScreen() {
                 onChange={e => setEmail(e.target.value)}
               />
             </Form.Group>
-            <InputGroup controlId='password'>
+            <InputGroup>
               <Form.Control
                 type={showPassword === true ? 'text' : 'password'}
                 placeholder='Password'
@@ -45,9 +68,9 @@ function LoginScreen() {
                 }
               >
                 {showPassword === true ? (
-                  <i class='fa-regular fa-eye-slash fa-sm'></i>
+                  <i className='fa-regular fa-eye-slash fa-sm'></i>
                 ) : (
-                  <i class='fa-regular fa-eye fa-md'></i>
+                  <i className='fa-regular fa-eye fa-md'></i>
                 )}
               </Button>
             </InputGroup>
@@ -58,7 +81,7 @@ function LoginScreen() {
                   id='remember me'
                   name='remember me'
                 ></input>
-                <label for='remember me'>Remember me</label>
+                <label>Remember me</label>
               </div>
               <Link>Forgot password?</Link>
             </div>
