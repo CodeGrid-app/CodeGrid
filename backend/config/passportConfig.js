@@ -7,26 +7,30 @@ import AsyncHandler from 'express-async-handler';
 // Define Passport strategy
 AsyncHandler(
   passport.use(
-    new LocalStrategy(async (email, password, done) => {
-      // Fetch user from database based on email
-      const user = await User.findOne({ email: email });
+    // Create new LocalStrategy object with the usernameField set to 'email' instead of username
+    new LocalStrategy(
+      { usernameField: 'email' },
+      async (email, password, done) => {
+        // Fetch user from database based on email
+        const user = await User.findOne({ email: email });
 
-      // If user doesn't exist, return error
-      if (!user) {
-        return done(null, false, { message: 'Incorrect email.' });
+        // If user doesn't exist, return error
+        if (!user) {
+          return done(null, false, { message: 'Incorrect email.' });
+        }
+
+        // If user exists, compare passwords
+        const isMatch = await bcrypt.compare(password, user.password);
+
+        // If passwords don't match, return error
+        if (!isMatch) {
+          return done(null, false, { message: 'Incorrect password.' });
+        }
+
+        // If passwords match, return user and proceed to authUser (next middleware)
+        return done(null, user);
       }
-
-      // If user exists, compare passwords
-      const isMatch = await bcrypt.compare(password, user.password);
-
-      // If passwords don't match, return error
-      if (!isMatch) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-
-      // If passwords match, return user and proceed to authUser (next middleware)
-      return done(null, user);
-    })
+    )
   )
 );
 
