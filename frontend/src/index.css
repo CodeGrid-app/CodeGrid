@@ -32,6 +32,9 @@
   --margin-5: 5rem;
 
   --flex-gap: 2rem;
+
+  --w: 2rem;
+  --h: 2rem;
 }
 
 * {
@@ -51,6 +54,11 @@ main {
 
 h1 {
   font-size: calc(var(--fs-800) * 1.7);
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
 input[type="checkbox"] {
@@ -103,6 +111,9 @@ button {
 .items-center {
   align-items: center;
 }
+.items-end {
+  align-items: flex-end;
+}
 .justify-center {
   justify-content: center;
 }
@@ -111,6 +122,16 @@ button {
 }
 .direction-column {
   flex-direction: column;
+}
+.self-center {
+  align-self: center;
+}
+.flex-grow {
+  flex: 1;
+}
+
+.relative {
+  position: relative;
 }
 
 /* Navbar */
@@ -157,6 +178,41 @@ button {
 .logo img {
   width: 5rem;
 }
+
+
+
+/* Logged In NavBar */
+.logged-nav {
+  padding-inline: calc(var(--padding-x)) calc(var(--padding-x) * 2.5);
+}
+
+.logged-nav ul {
+  position: relative;
+  height: 50px;
+  margin: 0;
+}
+
+.logged-nav-list > div {
+  margin-left: calc(var(--margin-5) * .75);
+}
+
+.navbar-avatar {
+  margin-left: calc(var(--margin-5) * .05);
+}
+
+.avatar-image-wrapper {
+  width: calc(var(--w) * 0.85);
+  height: calc(var(--w) * 0.85);
+}
+
+.avatar-image {
+  object-fit: cover;
+  border-radius: 9999px;
+  width: calc(var(--w) * 0.85);
+  height: calc(var(--w) * 0.85);
+  max-width: 100%;
+}
+
 
 /* Footer */
 footer {
