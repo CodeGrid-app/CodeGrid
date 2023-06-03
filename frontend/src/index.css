@@ -184,6 +184,8 @@ button {
 /* Logged In NavBar */
 .logged-nav {
   padding-inline: calc(var(--padding-x)) calc(var(--padding-x) * 2.5);
+  background-color: hsla(0, 2%, 16%);
+  box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.2);
 }
 
 .logged-nav ul {
@@ -198,6 +200,19 @@ button {
 
 .navbar-avatar {
   margin-left: calc(var(--margin-5) * .05);
+}
+
+.premium {
+  background-color: hsla(0, 0%, 100%, 0.1);
+  font-size: calc(var(--fs-200) * 1.05);
+  padding: calc(var(--padding-y) * .34) calc(var(--padding-x) * .13);
+  border-radius: calc(var(--border-radius-button) * 3);
+  margin-right: calc(var(--margin-5) * .3);
+}
+
+.premium > a {
+  color: var(--color-secondary);
+
 }
 
 .avatar-image-wrapper {
