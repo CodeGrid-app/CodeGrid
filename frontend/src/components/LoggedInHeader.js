@@ -19,7 +19,7 @@ function LoggedInHeader() {
                 <Link to='/'>Explore</Link>
               </div>
               <div className='self-center'>
-                <Link to='/'>Problems</Link>
+                <Link to='/problemset/all'>Problems</Link>
               </div>
               <div className='self-center'>
                 <Link to='/'>Discuss</Link>
