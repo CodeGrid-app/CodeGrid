@@ -31,11 +31,11 @@ function LoggedInHeader() {
               </div>
             </ul>
           </div>
-          <div className='flex premium items-center '>
-            <Link to='/'>Premium</Link>
-          </div>
 
-          <div className='flex items-center'>
+          <div className='flex items-center items-right'>
+            <div className='flex premium items-center '>
+              <Link to='/'>Premium</Link>
+            </div>
             <div>
               <Button variant='link'>
                 <Link to='/'>
