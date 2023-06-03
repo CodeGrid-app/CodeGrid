@@ -43,7 +43,7 @@ function LoggedInHeader() {
                 </Link>
               </Button>
             </div>
-            <div className='relative account-icon'>
+            <div className='flex account-icon'>
               <AccountDropdownMenu />
             </div>
           </div>
