@@ -13,7 +13,7 @@ function Header() {
     <nav className='flex nav-flex'>
       <div className='logo'>
         <Link to='/'>
-          <img src='logo.svg' alt='logo' />
+          <img src='/logo.svg' alt='logo' />
         </Link>
       </div>
       <ul className='flex nav-list'>
