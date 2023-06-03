@@ -24,7 +24,7 @@ function LoginScreen() {
   useEffect(() => {
     // If user is logged in, redirect to /problems
     if (userInfo) {
-      navigate('/problems');
+      navigate('/problemset/all');
     }
   }, [userInfo, navigate]);
 
