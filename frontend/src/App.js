@@ -17,7 +17,7 @@ function App() {
             <Route path='/' element={<HomeScreen />}></Route>
             <Route path='/login' element={<LoginScreen />}></Route>
             <Route path='/signup' element={<SignupScreen />}></Route>
-            <Route path='/problems' element={<ProblemsScreen />}></Route>
+            <Route path='/problemset/all' element={<ProblemsScreen />}></Route>
           </Routes>
         </Container>
       </main>
