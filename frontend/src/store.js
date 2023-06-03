@@ -2,13 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 import Cookies from 'js-cookie';
 import userLoginReducer from './slices/userSlice';
 
-const cookieValue = Cookies.get('userInfo')
-  ? JSON.parse(Cookies.get('userInfo'))
+const userInfoFromLocalStorage = localStorage.getItem('userInfo')
+  ? JSON.parse(localStorage.getItem('userInfo'))
   : null;
 
 const initialState = {
   userLogin: {
-    userInfo: cookieValue || null,
+    userInfo: userInfoFromLocalStorage,
   },
 };
 
