@@ -13,11 +13,18 @@ function AccountDropdownMenu() {
             </div>
         </div>
       </Menu.Button>
+      <Transition
+        enter="transition duration-100 ease-out"
+        enterFrom="transform scale-95 opacity-0"
+        enterTo="transform scale-100 opacity-100"
+        leave="transition duration-75 ease-out"
+        leaveFrom="transform scale-100 opacity-100"
+        leaveTo="transform scale-95 opacity-0">
       <Menu.Items className={'flex direction-column logged-dropdown-menu'}>
         <Menu.Item>
           {({ active }) => (
             <a
-              className={`${active} flex username-link items-center`}
+              className={`${active && 'bg-blue-500'} flex username-link items-center`}
               href="/"
             >
                 <div id='navbar-avatar' className='navbar-avatar'>
@@ -53,6 +60,7 @@ function AccountDropdownMenu() {
           )}
         </Menu.Item>
       </Menu.Items>
+      </Transition>
     </Menu>
   )
 }
