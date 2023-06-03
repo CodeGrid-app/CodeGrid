@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import AccountDropdownMenu from './AccountDropdownMenu';
 
 function LoggedInHeader() {
   return (
@@ -42,18 +43,8 @@ function LoggedInHeader() {
                 </Link>
               </Button>
             </div>
-
-            <div className='relative'>
-              <Button variant='link' className='flex items-center'>
-                <div id='navbar-avatar' className='navbar-avatar'>
-                  <div className='avatar-image-wrapper'>
-                    <img
-                      src='/images/avatar.png'
-                      className='avatar-image'
-                    ></img>
-                  </div>
-                </div>
-              </Button>
+            <div className='relative account-icon'>
+              <AccountDropdownMenu />
             </div>
           </div>
         </Container>
