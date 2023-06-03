@@ -5,14 +5,14 @@ import { useDispatch } from 'react-redux';
 
 function LoggedInHeader() {
   return (
-    <nav className='flex items-center py-3 logged-nav'>
+    <nav className='flex items-center logged-nav'>
       <Container className='flex justify-center' fluid>
         <Container className='flex items-center' fluid>
           <div className='flex items-center flex-grow'>
             <ul className='logged-nav-list flex items-end'>
               <div className='logo self-center'>
                 <Link to='/'>
-                  <img src='logo.svg' alt='logo' style={{ width: '3rem' }} />
+                  <img src='/logo.svg' alt='logo' style={{ width: '3rem' }} />
                 </Link>
               </div>
               <div className='self-center'>
@@ -30,7 +30,7 @@ function LoggedInHeader() {
               </div>
             </ul>
           </div>
-          <div className='flex premium items-center px-2'>
+          <div className='flex premium items-center '>
             <Link to='/'>Premium</Link>
           </div>
 
@@ -38,7 +38,7 @@ function LoggedInHeader() {
             <div>
               <Button variant='link'>
                 <Link to='/'>
-                  <i class='fa-regular fa-bell'></i>
+                  <i className='fa-regular fa-bell'></i>
                 </Link>
               </Button>
             </div>
@@ -47,7 +47,10 @@ function LoggedInHeader() {
               <Button variant='link' className='flex items-center'>
                 <div id='navbar-avatar' className='navbar-avatar'>
                   <div className='avatar-image-wrapper'>
-                    <img src='images/avatar.png' className='avatar-image'></img>
+                    <img
+                      src='/images/avatar.png'
+                      className='avatar-image'
+                    ></img>
                   </div>
                 </div>
               </Button>
