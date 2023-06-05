@@ -6,6 +6,7 @@ import connectDB from './config/db.js';
 import passport from 'passport';
 import userRoutes from './routes/userRoutes.js';
 import session from 'express-session';
+import { errorHandler } from './middleware/errorMidleware.js';
 
 dotenv.config();
 
@@ -35,6 +36,8 @@ app.use(passport.session());
 
 // Routes
 app.use('/api/users', userRoutes);
+
+app.use(errorHandler);
 
 app.get('/', (req, res) => {
   res.send(`API is running...`);
