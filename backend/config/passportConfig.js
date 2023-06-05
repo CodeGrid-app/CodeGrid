@@ -16,7 +16,9 @@ AsyncHandler(
 
         // If user doesn't exist, return error
         if (!user) {
-          return done(null, false, { message: 'Incorrect email.' });
+          return done(new Error('Invalid email address'), false, {
+            message: 'Incorrect email.',
+          });
         }
 
         // If user exists, compare passwords
