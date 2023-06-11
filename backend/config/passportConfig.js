@@ -11,9 +11,11 @@ AsyncHandler(
     new LocalStrategy(
       { usernameField: 'email' },
       async (email, password, done) => {
+        // Artificial delay
+        await new Promise(r => setTimeout(r, 1000));
+
         // Fetch user from database based on email
         const user = await User.findOne({ email: email });
-
         // If user doesn't exist, return error
         if (!user) {
           return done(new Error('Invalid email address'), false, {
