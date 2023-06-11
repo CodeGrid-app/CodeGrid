@@ -449,8 +449,10 @@ footer {
   .login-top a {
     color: var(--color-secondary);
     text-decoration: none;
+    font-size: var(--fs-200);
+
   }
-  .login-top a,
+
   .login-top p,
   .login-top label {
     font-size: var(--fs-200);
@@ -493,3 +495,8 @@ footer {
   .login-buttons button:hover {
     background-color: var(--color-input-dark);
   }
+
+.login-top .error-text {
+  color:#ce4848;
+  font-size: var(--fs-100);
+}
