@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import GoogleButton from '../components/login_buttons/GoogleButton';
 import GithubButton from '../components/login_buttons/GithubButton';
 import FacebookButton from '../components/login_buttons/FacebookButton';
+import Error from '../components/misc/Alert';
 
 import { login } from '../actions/userActions';
 
@@ -73,6 +74,13 @@ function LoginScreen() {
                   <i className='fa-regular fa-eye fa-md'></i>
                 )}
               </Button>
+
+              {error && (
+                <Error>
+                  The e-mail address and/or password you specified are not
+                  correct.
+                </Error>
+              )}
             </InputGroup>
             <div className='login-utilities flex'>
               <div className='flex items-center'>
